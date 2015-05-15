@@ -17,10 +17,9 @@ server.use(prerender.removeScriptTags());
 server.use(prerender.httpHeaders());
 // server.use(prerender.inMemoryHtmlCache());
 
+server.use(prerender.rootRequest());
 if (process.env.PHANTOM_CACHE_ENABLED == '1') {
 	server.use(prerender.s3HtmlCache());
-} else {
-	server.use(prerender.rootRequest());
 }
 
 server.start();
