@@ -8,7 +8,6 @@ var server = prerender({
     messageTimeout: process.env.PHANTOM_CLUSTER_MESSAGE_TIMEOUT
 });
 
-server.use(prerender.logStatusCode());
 // server.use(prerender.basicAuth());
 // server.use(prerender.whitelist());
 // server.use(prerender.blacklist());
@@ -21,5 +20,6 @@ server.use(prerender.rootRequest());
 if (process.env.PHANTOM_CACHE_ENABLED == '1') {
 	server.use(prerender.s3HtmlCache());
 }
+server.use(prerender.logStatusCode());
 
 server.start();
