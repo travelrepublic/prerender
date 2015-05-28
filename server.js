@@ -20,6 +20,6 @@ server.use(prerender.rootRequest());
 if (process.env.PHANTOM_CACHE_ENABLED == '1') {
 	server.use(prerender.s3HtmlCache());
 }
-server.use(prerender.logStatusCode());
+//server.use(prerender.logStatusCode());
 
 server.start();
